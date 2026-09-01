@@ -4,9 +4,9 @@ from datetime import datetime, timezone
 import database
 
 
-def create_session(user_id):
+def create_session(user):
     token = secrets.token_urlsafe(32)
-    database.insert_session(token, user_id)
+    database.insert_session(token, user["user_id"])
     return token
 
 
